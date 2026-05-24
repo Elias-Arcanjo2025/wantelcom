@@ -72,7 +72,7 @@ h1, h2, h3, h4, .font-heading {
   font-family: 'Outfit', sans-serif;
 }
 
-.page { display: none; min-height: 100vh; }
+.page { display: none; min-height: 100vh; overflow-x: hidden; }
 .page.active { display: block; }
 
 /* NAV */
@@ -83,7 +83,17 @@ nav {
   background: var(--nav-bg); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
-.logo { display: flex; align-items: center; gap: .75rem; cursor: pointer; text-decoration: none; }
+.logo { display: flex; align-items: center; gap: .75rem; cursor: pointer; text-decoration: none; flex-shrink: 0; }
+.logo-img { height: 36px; width: auto; display: block; }
+.logo-dark { display: block; }
+.logo-light { display: none; }
+[data-theme="light"] .logo-dark { display: none; }
+[data-theme="light"] .logo-light { display: block; }
+.footer-logo-img { height: 40px; width: auto; display: block; }
+.footer-logo-img.logo-dark { display: block; }
+.footer-logo-img.logo-light { display: none; }
+[data-theme="light"] .footer-logo-img.logo-dark { display: none; }
+[data-theme="light"] .footer-logo-img.logo-light { display: block; }
 .logo-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
 .logo svg { width: 24px; height: 24px; fill: white; }
 .logo-text { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
@@ -171,7 +181,7 @@ section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
 .cat-count { font-size: 0.8rem; color: var(--text3); margin-top: 0.4rem; }
 
 /* PRODUCTS GRID */
-.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2rem; width: 100%; min-width: 0; }
 .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; transition: 0.25s; position: relative; display: flex; flex-direction: column; }
 .product-card:hover { border-color: var(--blue); transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .product-badge { position: absolute; top: 16px; left: 16px; z-index: 2; background: var(--blue); color: white; font-size: 0.7rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -504,6 +514,8 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   .shop-layout, .product-page-layout, .cart-layout, .auth-page, .dashboard-layout, .contact-layout { grid-template-columns: 1fr; }
   .sidebar, .auth-visual { display: none; }
   .about-stats, .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+  .flash-sale { margin: 2rem 1rem; padding: 3rem 2rem; }
   
   /* Newsletter */
   .newsletter { padding: 4rem 1.5rem; }
@@ -516,7 +528,14 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   
   /* Navbar */
   nav { padding: 0 1rem; }
-  .logo-text { font-size: 1.1rem; }
+  .logo-img { height: 28px; }
+  
+  /* Shop Grid */
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .shop-layout { padding-left: 1rem; padding-right: 1rem; }
+  .shop-header { padding: 1rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .cart-layout { padding-left: 1rem; padding-right: 1rem; }
+  .cart-item-actions { flex-wrap: wrap; gap: 1rem; }
   
   /* Promo */
   .promo-banner { padding: 2.5rem 1.5rem; border-radius: 20px; margin: 0 1rem; }
@@ -547,6 +566,15 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   .stat { border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
   .stat:last-child { border-bottom: none; }
   .flash-sale { padding: 2rem 1rem; margin: 2rem 0.5rem; }
-  .flash-header { gap: 1rem; justify-content: center; text-align: center; }
+  .flash-header { gap: 1rem; justify-content: center; text-align: center; flex-direction: column; }
   .countdown { justify-content: center; width: 100%; }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .product-body { padding: 1rem; }
+  .product-name { font-size: 0.9rem; }
+  .product-price { font-size: 1rem; }
+  .logo-img { height: 24px; }
+  .footer-logo-img { height: 32px; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .brands-row { gap: 0.75rem; }
+  .brand-chip { padding: 0.75rem 1.25rem; font-size: 0.85rem; }
 }
