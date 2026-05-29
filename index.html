@@ -32,6 +32,27 @@
     <div class="nav-menu" id="navMenu">
       <div class="nav-links">
         <a onclick="goTo('home'); closeMobileMenu()">Início</a>
+        
+        <!-- Select de Categorias -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            <i class="ph ph-squares-four"></i> Categorias <i class="ph ph-caret-down caret"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-desktop"></i> Informática</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-device-mobile"></i> Smartphones</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-device-tablet"></i> Tablets</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-game-controller"></i> Gaming</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-wifi-high"></i> Redes e Segurança</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-briefcase"></i> Escritório</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-lightning"></i> Energia</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-house-line"></i> Electrodomésticos</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-monitor-play"></i> Imagem e Som</a>
+            <a onclick="goTo('shop'); closeMobileMenu()"><i class="ph ph-headphones"></i> Acessórios</a>
+            <a onclick="goTo('shop'); closeMobileMenu()" class="promo-link"><i class="ph-fill ph-tag"></i> Promoções</a>
+          </div>
+        </div>
+
         <a onclick="goTo('shop'); closeMobileMenu()">Loja</a>
         <a onclick="goTo('about'); closeMobileMenu()">Sobre Nós</a>
         <a onclick="goTo('contact'); closeMobileMenu()">Contactos</a>
@@ -43,7 +64,10 @@
         </button>
         <button class="nav-btn cart-btn" onclick="goTo('cart'); closeMobileMenu()"><i class="ph ph-shopping-cart"></i>
           Carrinho <span class="cart-badge" id="cartCount">3</span></button>
-        <button class="nav-btn" onclick="goTo('login'); closeMobileMenu()"><i class="ph ph-sign-in"></i> Entrar</button>
+        <button class="nav-login-btn" onclick="goTo('login'); closeMobileMenu()">
+          <span class="login-glow"></span>
+          <i class="ph ph-user-circle"></i> Login
+        </button>
         <button class="nav-btn primary" onclick="goTo('dashboard'); closeMobileMenu()"><i class="ph ph-user"></i>
           Conta</button>
       </div>
@@ -770,7 +794,7 @@
         <h3>Resumo do Pedido</h3>
         <div class="summary-row"><span>Subtotal (3 itens)</span><span>AKZ 78.397.500</span></div>
         <div class="summary-row"><span>Entrega</span><span style="color:var(--accent)">Grátis</span></div>
-        <div class="summary-row"><span>Desconto</span><span style="color:#E11D48">&minus;AKZ 7.839.750</span></div>
+        <div class="summary-row"><span>Desconto</span><span style="color:var(--accent)">&minus;AKZ 7.839.750</span></div>
         <div class="summary-row"><span>Total</span><span style="color:var(--blue-light)">AKZ 70.557.750</span></div>
         <div class="coupon-input">
           <input type="text" placeholder="Código de cupom">
